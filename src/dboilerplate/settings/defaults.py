@@ -22,7 +22,7 @@ DJANGO_APPS = (
     'django.contrib.sitemaps',
 )
 
-APPS = ('',)
+APPS = ()
 
 THIRDPARTY_APPS = (
      'south',
@@ -108,10 +108,15 @@ LANGUAGES = (
 ####################################################
 
 STATIC_URL = '/static/'
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../../htdocs/static'))
 MEDIA_URL = ''
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../../htdocs/media'))
 
+BUILD_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../../build_output'))
+
+STATICFILES_DIRS = (
+    BUILD_ROOT,
+)
 
 ####################################################
 # Other settings                                   #

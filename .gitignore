@@ -35,3 +35,8 @@ nosetests.xml
 .project
 .pydevproject
 **/development.py
+
+# Frontend scripts
+scripts/bower_components
+scripts/node_modules
+npm-debug.log
