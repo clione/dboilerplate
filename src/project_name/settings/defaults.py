@@ -122,8 +122,8 @@ STATICFILES_DIRS = (
 # Other settings                                   #
 ####################################################
 
-ROOT_URLCONF = 'dboilerplate.urls'
-WSGI_APPLICATION = 'dboilerplate.wsgi.application'
+ROOT_URLCONF = '{{ project_name }}.urls'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
 ####################################################

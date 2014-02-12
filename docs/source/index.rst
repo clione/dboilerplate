@@ -3,8 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DBoilerplate's documentation!
-========================================
+DBoilerplate documentation!
+===========================
+
+.. toctree::
+    :maxdepth: 2
+    install
+    howtouse
+    deploy
 
 Contents:
 

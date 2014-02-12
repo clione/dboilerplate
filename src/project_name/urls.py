@@ -15,6 +15,7 @@ sitemaps = {
 
 urlpatterns = patterns('',
 
+    # url(r'^$', '{{ project_name }}.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
 )
