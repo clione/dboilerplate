@@ -1,10 +1,10 @@
 # Require any additional compass plugins here.
-add_import_path "dboilerplate/scripts/bower_components/foundation/scss"
+add_import_path "{{ project_name }}/scripts/bower_components/foundation/scss"
 
 # Set this to the root of your project when deployed:
 #http_path = "static/"
 css_dir = "build_output/css"
-sass_dir = "dboilerplate/scss"
+sass_dir = "{{ project_name }}/scss"
 #images_dir = "htdocs/media/img"
 #javascripts_dir = "htdocs/media/js"
 

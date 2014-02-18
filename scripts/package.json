@@ -1,17 +1,17 @@
 {
-  "name": "dboilerplate",
+  "name": "{{ project_name }}",
   "description": "",
   "keywords": [],
   "version": "0.1.0",
   "project_paths": {
-    "scripts_folder": "dboilerplate/scripts/",
-    "project_folder": "dboilerplate/"
+    "scripts_folder": "{{ project_name }}/scripts/",
+    "project_folder": "{{ project_name }}/"
   },
   "dest_paths": {
     "js": "build_output/js/"
   },
   "src_paths": {
-    "scss": "dboilerplate/scss/"
+    "scss": "{{ project_name }}/scss/"
   },
   "dependencies": {
     "grunt": "~0.4.2",
