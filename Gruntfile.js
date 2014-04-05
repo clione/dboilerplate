@@ -63,26 +63,17 @@ module.exports = function(grunt) {
         files: ['<%= pkg.src_paths.scss %>/*.scss'],
         tasks: ['compass']
       }
+    },
+    shell : {
+      runserver : {
+        command : 'python src/manage.py runserver',
+        options : {
+          stdout: true,
+          stdin: true,
+          stderr: true
+        }
+      }
     }
-    //shell : {
-      //runserver : {
-      //  command : 'python manage.py runserver',
-      //  options : {
-      //    stdout: true,
-      //    execOptions:{
-      //      cwd : 'src'
-      //    }
-      //  }
-      //},
-      //activate : {
-      //  command : 'source ../Scripts/activate'
-        //options : {
-          //execOptions:{
-          //  cwd : '../Scripts'
-          //}
-        //}
-      //}
-    //}
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -90,9 +81,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  //grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass']);
-  //grunt.registerTask('activate', ['shell:activate']);
+  grunt.registerTask('serve', ['shell:runserver']);
 
 };

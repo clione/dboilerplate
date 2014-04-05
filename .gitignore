@@ -39,4 +39,6 @@ nosetests.xml
 # Frontend scripts
 bower_components/
 node_modules/
+frontend/build_output/
+package
 npm-debug.log
