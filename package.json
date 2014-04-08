@@ -7,19 +7,24 @@
     "project_folder": "frontend/"
   },
   "dest_paths": {
-    "js": "frontend/build_output/js/"
+    "js": "../htdocs/build_output/js/",
+    "fonts": "../htdocs/build_output/css/fonts/",
+    "images": "../htdocs/build_output/images/"
   },
   "src_paths": {
-    "scss": "frontend/scss/"
+    "scss": "frontend/scss/",
+    "fonts": "frontend/fonts/",
+    "images": "frontend/images/"
   },
   "dependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-compass": "~0.7.0",
     "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "~0.5.0",
     "grunt-shell": "~0.6.4"
   },
   "devDependencies":{},

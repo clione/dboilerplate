@@ -5,13 +5,10 @@ additional_import_paths = [
 
 # Set this to the root of your project when deployed:
 #http_path = "static/"
-css_dir = "frontend/build_output/css"
+css_dir = "../htdocs/build_output/css"
 sass_dir = "frontend/scss"
-images_dir = "frontend/img"
-javascripts_dir = "frontend/js"
 
 output_style = :compressed
-line_comments = false
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

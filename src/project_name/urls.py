@@ -21,8 +21,9 @@ urlpatterns = patterns('',
 )
 
 ####################################################
-# Your URL patterns                                #
+# Your app URL patterns                            #
 ####################################################
 
 urlpatterns += patterns('',
+    #url(r'^$', include('apps.{{my_app}}.urls')) ## Example
 )

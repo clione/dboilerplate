@@ -3,7 +3,7 @@ Main trigger for the settings. This file determines what subset of the settings
 should be loaded.
 """
 
-import defaults
+from defaults import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

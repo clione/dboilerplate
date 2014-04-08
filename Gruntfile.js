@@ -9,8 +9,8 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-          '<%= pkg.project_paths.scripts_folder %>bower_components/jquery/jquery.js',
-          '<%= pkg.project_paths.scripts_folder %>bower_components/foundation/js/foundation.min.js',
+          '<%= pkg.project_paths.scripts_folder %>bower_components/jquery/dist/jquery.js',
+          '<%= pkg.project_paths.scripts_folder %>bower_components/foundation/js/foundation.js',
           '<%= pkg.project_paths.project_folder %>js/*.js'
         ],
         dest: '<%= pkg.dest_paths.js %><%= pkg.name %>.js'
@@ -41,7 +41,8 @@ module.exports = function(grunt) {
           console: true,
           module: true,
           alert: true,
-          document: true
+          document: true,
+          window:true
         }
       }
     },
@@ -51,6 +52,27 @@ module.exports = function(grunt) {
         options: {
           config: "config.rb"
         }
+      }
+    },
+    // Copy fonts and images to build output directory
+    copy: {
+      dist: {
+        files: [
+          // Fonts
+          {
+            expand: true,
+            cwd: '<%= pkg.src_paths.fonts %>',
+            src: ['**/*', '!**/*.json'],
+            dest: '<%= pkg.dest_paths.fonts %>'
+          },
+          // Images
+          {
+            expand: true,
+            cwd: '<%= pkg.src_paths.images %>',
+            src: '**/*',
+            dest: '<%= pkg.dest_paths.images %>'
+          }
+        ]
       }
     },
     // Watch task to compile files live
@@ -81,9 +103,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-shell');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass', 'copy']);
+  grunt.registerTask('debug', ['jshint', 'concat', 'compass']);
   grunt.registerTask('serve', ['shell:runserver']);
 
 };

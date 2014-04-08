@@ -1,0 +1,15 @@
+import os
+from defaults import BASE_DIR
+
+SECRET_KEY = '5d9j*9n&_wz-!w#6$vz9%v_-oy^bo%=!_(hze&ve+(=)x#99+#'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}

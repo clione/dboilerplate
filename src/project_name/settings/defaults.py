@@ -112,7 +112,7 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../../htdocs/static'))
 MEDIA_URL = ''
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../../htdocs/media'))
 
-BUILD_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../build_output'))
+BUILD_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../../htdocs/build_output'))
 
 STATICFILES_DIRS = (
     BUILD_ROOT,
