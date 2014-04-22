@@ -107,6 +107,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass', 'copy']);
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass', 'copy']);
   grunt.registerTask('debug', ['jshint', 'concat', 'compass']);
   grunt.registerTask('serve', ['shell:runserver']);
 
