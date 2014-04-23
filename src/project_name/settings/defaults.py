@@ -6,6 +6,15 @@ environments should be here, like applications.
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+#######################################################
+#
+# Webfont mime type fix for firefox and safari
+#
+#######################################################
+
+import mimetypes
+mimetypes.add_type("application/font-woff", ".woff", True)
+
 
 ####################################################
 # Applications                                     #
