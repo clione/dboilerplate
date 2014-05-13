@@ -36,9 +36,15 @@ nosetests.xml
 .pydevproject
 **/development.py
 
+# State_control.py
+**/state_control.py
+
+
 # Frontend scripts
 bower_components/
 node_modules/
 frontend/build_output/
 package
 npm-debug.log
+
+

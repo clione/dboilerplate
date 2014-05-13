@@ -1,0 +1,4 @@
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+	
+STAGING = False # Only valid if DEBUG=True. Sets the staging settings.
