@@ -5,7 +5,7 @@
 
 	<meta name="viewport" content="initial-scale=1">
 	
-	{% with '' as title and '' as description and '' as keywords and '' as social_image and '' as site_url %}
+	{% with '' as title and '' as description and '' as keywords and '' as social_image and request.build_absolute_uri as site_url %}
 	    
     <title>{{title}}</title>
     <meta name="description" content=" {{description}} " />
