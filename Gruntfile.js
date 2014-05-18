@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= pkg.dest_paths.js %><%= pkg.name %>.min.js': ['<%= concat.dist.dest %>'],
+          '<%= pkg.dest_paths.js %><%= pkg.name %>app.js': ['<%= concat.dist.dest %>'],
           '<%= pkg.dest_paths.js %>modernizr.min.js': ['<%= pkg.project_paths.scripts_folder %>bower_components/modernizr/modernizr.js']
         }
       }
