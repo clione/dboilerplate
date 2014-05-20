@@ -5,11 +5,13 @@ should be loaded.
 
 #from state_control import *
 from defaults import *
+import os
 
-DEBUG = True
+DEBUG = bool(int(os.getenv('DJANGO_IS_DEBUG', True)))
 TEMPLATE_DEBUG = DEBUG
 
-STAGING = False # Only valid if DEBUG=True. Sets the staging settings.
+# Only valid if DEBUG=True. Sets the staging settings.
+STAGING = bool(int(os.getenv('DJANGO_IS_STAGING', False))) 
 
 if DEBUG and not STAGING:
     from development import *
