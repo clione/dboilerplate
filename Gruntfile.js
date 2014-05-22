@@ -9,11 +9,11 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-          '<%= pkg.project_paths.scripts_folder %>bower_components/jquery/dist/jquery.js',
-          '<%= pkg.project_paths.scripts_folder %>bower_components/foundation/js/foundation.js',
-          '<%= pkg.project_paths.project_folder %>js/*.js'
+          '<%= pkg.project_paths.bower_folder %>jquery/dist/jquery.js',
+          // '<%= pkg.project_paths.bower_folder %>foundation/js/foundation.js',
+          '<%= pkg.src_paths.js %>**/*.js'
         ],
-        dest: '<%= pkg.dest_paths.js %><%= pkg.name %>.js'
+        dest: '<%= pkg.dest_paths.js %>app.js'
       }
     },
     // Minification of JS
@@ -23,16 +23,29 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= pkg.dest_paths.js %><%= pkg.name %>app.js': ['<%= concat.dist.dest %>'],
-          '<%= pkg.dest_paths.js %>modernizr.min.js': ['<%= pkg.project_paths.scripts_folder %>bower_components/modernizr/modernizr.js']
+          '<%= pkg.dest_paths.js %>app.js': ['<%= concat.dist.dest %>'],
         }
+      },
+      dev: {
+        files: {
+          '<%= pkg.dest_paths.js %>modernizr.min.js': ['<%= pkg.project_paths.bower_folder %>modernizr/modernizr.js']
+        }
+      }
+    },
+    // CSSmin to minify CSS on production
+    cssmin: {
+        minify:{
+        expand: true,
+        cwd: '<%= pkg.dest_paths.css %>',
+        src: ['*.css',],
+        dest: '<%= pkg.dest_paths.css %>',
+        ext: '.css' 
       }
     },
     // JSHint to review JS code before build
     jshint: {
       files: [
-        '<%= pkg.project_paths.project_folder %>js/*.js',
-        '<%= pkg.project_paths.project_folder %>js/components/*.js'
+        '<%= pkg.src_paths.js %>**/*.js',
       ],
       options: {
         // options here to override JSHint defaults
@@ -79,20 +92,35 @@ module.exports = function(grunt) {
     watch: {
       js:{
         files: ['<%= jshint.files %>'],
-        tasks: ['jshint', 'concat', 'uglify']
+        tasks: ['jshint', 'concat']
       },
       scss: {
-        files: ['<%= pkg.src_paths.scss %>/*.scss'],
+        files: ['<%= pkg.src_paths.scss %>**/**/*.scss'],
         tasks: ['compass']
+      },
+      images: {
+        files: [
+          '<%= pkg.src_paths.images %>**/*.jpg',
+          '<%= pkg.src_paths.images %>**/*.gif',
+          '<%= pkg.src_paths.images %>**/*.png'
+        ],
+        tasks: ['copy']
+      },
+      fonts: {
+        files: [
+          '<%= pkg.src_paths.fonts %>**/*.eot',
+          '<%= pkg.src_paths.fonts %>**/*.woff',
+          '<%= pkg.src_paths.fonts %>**/*.svg',
+          '<%= pkg.src_paths.fonts %>**/*.ttf'
+        ],
+        tasks: ['copy']
       }
     },
-    shell : {
-      runserver : {
-        command : 'python src/manage.py runserver',
-        options : {
-          stdout: true,
-          stdin: true,
-          stderr: true
+    docco: {
+      debug: {
+        src: ['<%= pkg.src_paths.js %>**/*.js'],
+        options: {
+          output: 'docs/js/'
         }
       }
     }
@@ -104,11 +132,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-docco');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass', 'copy']);
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass', 'copy']);
-  grunt.registerTask('debug', ['jshint', 'concat', 'compass']);
-  grunt.registerTask('serve', ['shell:runserver']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify:dev', 'compass', 'copy']);
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify:dev', 'compass', 'copy']);
+  grunt.registerTask('dist', ['jshint', 'concat', 'uglify', 'compass', 'cssmin', 'copy']);
+  grunt.registerTask('doc', 'docco');
 
 };

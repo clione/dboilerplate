@@ -35,10 +35,7 @@ nosetests.xml
 .project
 .pydevproject
 **/development.py
-
-# State_control.py
-**/state_control.py
-
+*.sqlite3
 
 # Frontend scripts
 bower_components/
@@ -47,4 +44,4 @@ frontend/build_output/
 package
 npm-debug.log
 .sass-cache
-
+docs/js/*

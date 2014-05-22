@@ -1,3 +1,2 @@
 django
 south  # Manages migrations
-fabric  # Installs fabric for automated deployments
