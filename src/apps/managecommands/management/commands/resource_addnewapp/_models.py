@@ -1,4 +1,5 @@
 import sys, os
+from importlib import import_module
 from _commons import validate_yes_no, MODELNAME_template
 import _admin
 
@@ -14,6 +15,13 @@ def request(app_name):
 			# Default model name if none supplied
 			if not model_name:
 				model_name = "MyModel"
+
+			# Check if abstract base fields and include them as inherited model if they exist
+			# try:
+			# 	from libs.utils.abstract_models import BaseFields
+			# except ImportError:
+			# 	pass
+
 			create_model(model_name)
 
 			# Ask if an admin for this model should be created

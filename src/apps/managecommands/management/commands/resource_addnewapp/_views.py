@@ -1,8 +1,8 @@
 import string
 from _commons import validate_yes_no, return_template, is_class_based
-import _urls
+import _urls, _templates
 
-def create_view(views_name, views_type, model_name = False):
+def create_view(views_name, views_type, template_name, model_name = False):
 
 	with open('views.py', 'a+b') as view_file:
 
@@ -17,7 +17,10 @@ def create_view(views_name, views_type, model_name = False):
 			temp_id = 'views'
 
 		template = string.Template(open(return_template(temp_id)).read())
-		variables = {'VIEWNAME':views_name}
+		variables = {
+			'VIEWNAME':views_name,
+			'TEMPLATENAME':template_name,
+		}
 		result = template.substitute(variables)
 
 		view_file.write(result)
@@ -38,10 +41,16 @@ def request(app_name, model_name = False):
 
 			# Request whether view should be classed based or function 
 			views_type = raw_input('Is your view a) class based or b) a function [a/b]: ')
+			
+			# Check if view requires a template
+			template_name = _templates.request(views_name)
 
-			create_view(views_name, views_type, model_name)
+			create_view(views_name, views_type, template_name, model_name)
 
 			_urls.request(views_type, views_name)
+
+			if template_name:
+				_templates.create_template(template_name)
 
 			return
 
