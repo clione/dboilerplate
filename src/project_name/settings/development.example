@@ -1,8 +1,10 @@
 import os
-from defaults import BASE_DIR
 
-SECRET_KEY = '5d9j*9n&_wz-!w#6$vz9%v_-oy^bo%=!_(hze&ve+(=)x#99+#'
+from defaults import *
 
+####################################################
+# Database settings (default: sqlite3)             #
+####################################################
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -11,5 +13,126 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
+    },
+}
+
+####################################################
+# Allowed hosts and security                       #
+####################################################
+
+ALLOWED_HOSTS = ['*']  # By default in development we allow any host
+
+SECRET_KEY = 'v*&#e(xgw-fs1l#e%^nm-gqju(%hx@my@!9w^e08xyd(31cv90'
+
+
+####################################################
+# Internationalization                             #
+####################################################
+
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
+
+
+####################################################
+# Email (default: deactivated)                     #
+####################################################
+
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 25
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
+#DEFAULT_FROM_EMAIL = 'noreply@tipexchange.vanish.co.uk'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_USE_TLS = True
+
+
+####################################################
+# Caching (default: local cache)                   #
+####################################################
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake'
     }
 }
+
+####################################################
+# Alerts                                           #
+####################################################
+
+ADMINS = (
+    ('Admin', 'admin@example.com'),
+)
+
+MANAGERS = ADMINS
+
+
+####################################################
+# Fixtures (default: none)                         #
+# Use this if you want to put test data in the DB  #
+# on syncdb time                                   #
+####################################################
+
+FIXTURE_DIRS = (
+    (BASE_DIR + '/fixtures/'),
+)
+
+####################################################
+# Extra applications. Put here extra apps that are #
+# only required in development                     #
+####################################################
+
+INSTALLED_APPS += (
+    'sampledatahelper',
+)
+
+##########################################################
+# Sample data helper, this will fill the db              #
+# Please take a look to sampledatahelper docs            #
+# at https://github.com/kaleidos/django-sampledatahelper #
+##########################################################
+
+SAMPLEDATAHELPER_SEED = 21341245334214213498921347890
+
+SAMPLEDATAHELPER_MODELS = [
+    {
+        'model': 'feature.Feature',
+        'number': 1,
+        'fields_overwrite': [
+            ('title', 'The Vanish Gold Range'),
+            ('status', 1),
+            ('description', 'Lorem ipsum dolor sit amet, consectetur adipisicing'),
+            ('link', 'http://example.com'),
+            ('linkname', 'Buy Vanish'),
+        ]
+    },
+    {
+        'model': 'videos.Video',
+        'number': 1,
+        'fields_overwrite': [
+            ('status', 3),
+            ('provider', 0),
+            ('provider_id', 'fDa9DVuwRDc'),
+        ]
+    },
+    {'model': 'newsletter.Newsletter', 'number': 5, },
+    {'model': 'newsletter.NewsletterArticle', 'number': 5, },
+]
+
+#######################################################
+#
+# Debug!
+#
+#######################################################
+
+print """
+#####################################################################\n\
+                            Debug info\n\n\
+ * BASE_DIR: %s\n\
+ * PROJECT_DIR: %s\n
+ * MEDIA_DIR: %s\n\
+ * STATIC_DIR: %s\n\
+ * TEMPLATE_DIRS: %s\n\n\
+#####################################################################\n\
+""" % (BASE_DIR, PROJECT_DIR, MEDIA_ROOT, STATIC_ROOT, TEMPLATE_DIRS)
