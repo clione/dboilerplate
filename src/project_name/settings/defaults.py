@@ -22,7 +22,9 @@ DJANGO_APPS = (
     'django.contrib.sitemaps',
 )
 
-APPS = ()
+APPS = (
+    'apps.managecommands',
+)
 
 THIRDPARTY_APPS = (
     'allauth',                                   # General AllAuth stuff
