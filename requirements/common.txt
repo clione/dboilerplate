@@ -1,2 +1,6 @@
 django
 south  # Manages migrations
+fabric  # Installs fabric for automated deployments
+Pillow
+django-allauth
+git+git://github.com/yawd/yawd-admin.git
