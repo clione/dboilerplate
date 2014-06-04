@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.translation import ugettext as _
+
 
 class $MODELNAME(models.Model):
     class Meta:

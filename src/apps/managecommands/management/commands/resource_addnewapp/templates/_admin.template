@@ -11,4 +11,5 @@ class ${MODELNAME}Admin(admin.ModelAdmin):
 	search_fields = ('',)
 '''
 
-admin.site.register($MODELNAME, ${MODELNAME}Admin)
+#admin.site.register($MODELNAME, ${MODELNAME}Admin)
+admin.site.register($MODELNAME)
