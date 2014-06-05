@@ -35,7 +35,7 @@ THIRDPARTY_APPS = (
     # For extra authentication mechanisms please check the allauth docs
     # website: http://django-allauth.readthedocs.org/en/latest/
 
-     'south',
+    'south',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRDPARTY_APPS + APPS
@@ -73,8 +73,8 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10 MB in RAM for the uploads
 ####################################################
 
 # Yawn admin
-ADMIN_SITE_NAME = 'Tip Exchange 1.3 Administration'
-ADMIN_SITE_DESCRIPTION = "Where there's a stain, there's a way."
+ADMIN_SITE_NAME = ""
+ADMIN_SITE_DESCRIPTION = ""
 
 ####################################################
 # Messaging (also know as django messages)         #
