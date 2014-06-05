@@ -130,9 +130,8 @@ print """
 #####################################################################\n\
                             Debug info\n\n\
  * BASE_DIR: %s\n\
- * PROJECT_DIR: %s\n
  * MEDIA_DIR: %s\n\
  * STATIC_DIR: %s\n\
  * TEMPLATE_DIRS: %s\n\n\
 #####################################################################\n\
-""" % (BASE_DIR, PROJECT_DIR, MEDIA_ROOT, STATIC_ROOT, TEMPLATE_DIRS)
+""" % (BASE_DIR, MEDIA_ROOT, STATIC_ROOT, TEMPLATE_DIRS)
