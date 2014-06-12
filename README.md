@@ -1,6 +1,19 @@
 dboilerplate
 ============
 
+dboilerplate is a django template for setting up projects quickly. There are two options to use it:
+
+* Install it from the repository:
+Clone the repository to your computer and run afterwards this command:
+`$ django-admin.py startproject --template=/path/to/the/template
+
+* Install it from GitHub
+`$ django-admin.py startproject --template=https://github.com/clione/dboilerplate/archive/master.zip myproject
+
+Requirements:
+- django 1.4.x-1.6.x
+- Python 2.7.x
+
 PLEASE NOTE: This boilerplate is still in development, the documentation
 is not finished yet. You can help us if you want!
 
