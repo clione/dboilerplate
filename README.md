@@ -1,18 +1,18 @@
-dboilerplate
-============
+# dboilerplate
 
 dboilerplate is a django template for setting up projects quickly. There are two options to use it:
 
 * Install it from the repository:
+
 Clone the repository to your computer and run afterwards this command:
 
-`$ django-admin.py startproject --template=/path/to/the/template
+    $ django-admin.py startproject --template=/path/to/the/template
 
 * Install it from GitHub
-* 
-`$ django-admin.py startproject --template=https://github.com/clione/dboilerplate/archive/master.zip myproject
 
-Requirements:
+    $ django-admin.py startproject --template=https://github.com/clione/dboilerplate/archive/master.zip myproject
+
+## Requirements
 - django 1.4.x-1.6.x
 - Python 2.7.x
 
@@ -20,8 +20,6 @@ PLEASE NOTE: This boilerplate is still in development, the documentation
 is not finished yet. You can help us if you want!
 
 D-Boilerplate is a simple django boilerplate that we use at Havas Worldwide London to speed up our development process.
-
-Compatible with django versions: 1.4.x-1.6.x
 
 Features:
 
@@ -36,56 +34,31 @@ Features:
 - Improved logging mechanism
 
 
-Grunt Readme
-============
+## Grunt Readme
 
 You will need grunt, bower and compass installed for this boilerplate uses SCSS syntax for the CSS compiling
 
-Requirements
-------------
+### Requirements
 
 - Ruby 1.9+
 - NodeJS
 
 To install the required tools do (as root):
 
-`# npm install -g bower grunt grunt-cli`
+    # npm install -g bower grunt grunt-cli
+    # gem install compass
 
-`# gem install compass`
+#### After that enter the project and run
 
-After that enter the project and run
-------------------------------------
-
-`$ npm install`
-
-`$ npm update`
-
-`$ bower install`
-
-`$ bower update`
-
-`$ grunt`
-
-`$ ./manage.py collectstatic`
+    $ npm install
+    $ npm update
+    $ bower install
+    $ bower update
+    $ grunt
+    $ ./manage.py collectstatic
 
 
-----Requirements----
-
-Git Ruby 1.9+ NodeJS
-
-
-----Install----
-
-(GLOBAL)
-npm install -g bower
-
-(PROJECT)
-npm install
-npm update
-bower install
-bower update
-
-----Building project----
+#### Building project
 
 From frontend folder run...
 
