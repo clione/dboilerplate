@@ -10,6 +10,8 @@ Clone the repository to your computer and run afterwards this command:
 
 * Install it from GitHub
 
+This is the easiest way to install the template
+
     $ django-admin.py startproject --template=https://github.com/clione/dboilerplate/archive/master.zip myproject
 
 ## Requirements
@@ -62,5 +64,5 @@ To install the required tools do (as root):
 
 From frontend folder run...
 
-'grunt' - Build js and CSS files
-'watch' - Watch for changes to js or CSS files
+    'grunt' - Build js and CSS files
+    'watch' - Watch for changes to js or CSS files
